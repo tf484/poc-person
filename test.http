@@ -1,7 +1,4 @@
-post http://localhost:4004/odata/v4/person/createPerson
-#Secret JBLtZ9F78I6/afQ+//aOp2GTsSE=
-@client-id=sb-poc-person-aic-dev-dev!t213793
-@client-secret=ed539c04-47d2-49c6-985d-2d7caf1614d1$sabj9SPvAgyh8jaeUE5uy9jchLmP3cLwl0KARPySWYY=
+
 
 ### Get Auth Token
 ### Remote Access User Token Call
@@ -20,7 +17,7 @@ grant_type=client_credentials
 @auth-token={{authRequest.response.body.access_token}}
 
 ### Post create person
-post https://aic-dev-dev-poc-person-srv.cfapps.us10.hana.ondemand.com/odata/v4/person/createPerson
+post {{app_host}}/odata/v4/person/createPerson
 Content-Type: application/json
 Authorization: Bearer {{auth-token}}
 

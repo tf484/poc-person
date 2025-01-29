@@ -1,0 +1,40 @@
+{
+  "name": "poc-person",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap/cds": "^8",
+    "express": "^4",
+    "@cap-js/hana": "^1",
+    "@sap/xssec": "^3"
+  },
+  "devDependencies": {
+    "@cap-js/sqlite": "^1",
+    "@sap/cds-dk": "^8",
+    "@sap/eslint-plugin-cds": "^3",
+    "@sap/ux-specification": "^1.124.8",
+    "eslint": "^9"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-person": "cds watch --open person/webapp/index.html?sap-ui-xx-viewCache=false",
+    "undeploy": "cf undeploy poc-person --delete-services"
+  },
+  "sapux": [
+    "app/person"
+  ],
+  "cds": {
+    "requires": {
+      "[production]": {
+        "db": "hana",
+        "auth": "xsuaa"
+      },
+      "destinations": true,
+      "html5-repo": true
+      
+    }
+  }
+}
